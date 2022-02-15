@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .container{
+            align-items: center;
+        }
+        Table{
+            margin: 180px auto;
+            box-shadow: 2px 3px 3px 3px gray;
+        }
+        table,tr{
+            border-collapse: collapse;
+        }
+        table tr td button{
+            width: 100px;
+            height:100px;
+            font-size: 40px;
+        }
+        button:hover{
+            width: 102px;
+            height: 102px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="font-size: 50px;">Tic Tac Toe Game</h1>
+    <p style="font-size: 30px;">lets play it!</p>
+    <div class="container">
+        <table>
+            <tr>
+                <td><button class="btn"></button></td>
+                <td><button class="btn"></button></td>
+                <td><button class="btn"></button></td>
+            </tr>
+            <tr>
+                <td><button class="btn"></button></td>
+                <td><button class="btn"></button></td>
+                <td><button class="btn"></button></td>
+            </tr>
+            <tr>
+                <td><button class="btn"></button></td>
+                <td><button class="btn"></button></td>
+                <td><button class="btn"></button></td>
+            </tr>
+        </table>
+
+    </div>
+    <h1 id="result"></h1>
+    <script>
+        var btn = document.querySelectorAll(".btn");
+        console.log(btn);
+        let btnVal = 'X'; 
+        for(let i=0;i<9;i++){
+            btn[i].addEventListener('click',function(){
+                if(btnVal == 'X'){
+                    btn[i].innerHTML = btnVal;
+                    winner(btnVal);
+                    btnVal = 'O';
+                    btn[i].disabled = true;
+                    
+                }
+                else{
+                    btn[i].innerHTML = btnVal;
+                    winner(btnVal);
+                    btnVal = 'X';
+                    btn[i].disabled = true;
+                }
+            })
+            
+        }
+        function check(n1,n2,n3){
+            return btn[n1].innerHTML + btn[n2].innerHTML + btn[n3].innerHTML;
+        }
+        function disable(){
+            btn[0].disabled = true;
+            btn[1].disabled = true;
+            btn[2].disabled = true;
+            btn[3].disabled = true;
+            btn[4].disabled = true;
+            btn[5].disabled = true;
+            btn[6].disabled = true;
+            btn[7].disabled = true;
+            btn[8].disabled = true;
+        }
+        function winner(name){
+            let str
+            if(name == 'X'){
+                str = 'XXX';
+            }
+            else{
+                str = 'OOO';
+            }
+            if(check(0,1,2) == str || check(3,4,5) == str || check(6,7,8) == str || check(0,3,6) == str ||
+            check(1,4,7) == str || check(2,5,8) == str || check(0,4,8) == str || check(2,4,6) == str){
+                document.getElementById('result').innerHTML = name+" wins";
+                disable();
+
+            }
+            console.log(name);
+        }
+        
+        
+
+    </script>
+</body>
+</html>
