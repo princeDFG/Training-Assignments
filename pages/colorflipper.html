@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            
+            box-sizing: border-box;
+            align-items: center;
+        }
+        .container {
+            text-align: center;
+            margin:200px auto;
+            border: 2px solid;
+            padding: 20px;
+            width: 25%;
+            box-shadow: 3px 4px 5px gray;
+
+        }
+        .container-input{
+            border: none;
+            outline: none;
+            border-bottom: 1px solid gray;
+            text-decoration: none;
+            
+        }
+    </style>
+</head>
+<body id="body">
+    <div class="container">
+        <h1 id="heading">Background Color</h1>
+        <input type="text" id='color' class="container-input">
+        <br><br>
+        <button onclick="func()">change!</button>
+    </div>
+    .container
+    <script>
+        function func(){
+            let myColor = document.getElementById('color').value;
+            let bgCol = document.getElementById('body');
+            if(myColor === 'black'){
+               document.getElementById('heading').style.color = 'white';
+            }
+            else{
+                document.getElementById('heading').style.color = 'black';
+            }
+            bgCol.style.backgroundColor = myColor;
+        }
+    </script>
+</body>
+</html>
