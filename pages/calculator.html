@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            
+        
+        }
+        .calculator{
+            width: 40%;
+            box-shadow: 2px 2px 3px 3px gray ;
+            padding: 20px 20px 20px 20px;
+            padding-bottom: 10px;
+            margin: 200px auto;
+            height: auto;
+        }
+        .calculator-input input{
+            width: 100%;
+            border: 1px solid gray;
+            outline: none;
+            padding: 5px;
+            margin-bottom: 15px;
+
+        }
+        .calculator-operation{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .calculator-operation-button{
+            border: 1px solid gray;
+            width: 20%;
+            padding: 10px;
+        }
+        .calculator-button{
+            
+            
+            display: flex;
+        }
+        .calculator-button-num{
+            float: left;
+            width: 75%;
+            
+
+        }
+        .calculator-button-eql{
+            float: right;
+            width: 25%;
+            
+        }
+        .calculator-button-eql div{
+            height: 95%;
+            display: flex;
+            justify-content: end;
+            
+            
+        }
+        .calculator-button-eql div button{
+            width: 80%;
+            
+        }
+        .calculator-button-num-number{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .calculator-button-num-number button{
+            border: 1px solid gray;
+            width: 30%;
+            padding: 10px;
+
+        }
+        button{
+            font-size: xx-large;
+        }
+        input{
+            font-size: xx-large;
+        }
+        button:hover{
+            box-shadow: 2px 2px 3px 2px gray;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        
+        <div class="calculator-input">
+            <input type="text" value="0" id="output" >
+        </div>
+        <div class="calculator-operation">
+            
+            <button class="calculator-operation-button" onclick="stringBuilder('+')">+</button>
+            <button class="calculator-operation-button" onclick="stringBuilder('-')">-</button>
+            <button class="calculator-operation-button" onclick="stringBuilder('')"></button>
+            <button class="calculator-operation-button" onclick="stringBuilder('/')">/</button>
+            
+        </div>
+        <div class="calculator-button">
+            <div class="calculator-button-num">
+                <div class="calculator-button-num-number">
+                    <button id="b1" onclick="stringBuilder('1')">1</button>
+                    <button id="b2" onclick="stringBuilder('2')">2</button>
+                    <button id="b3" onclick="stringBuilder('3')">3</button>
+                </div>
+                <div class="calculator-button-num-number">
+                    <button id="b4" onclick="stringBuilder('4')">4</button>
+                    <button id="b5" onclick="stringBuilder('5')">5</button>
+                    <button id="b6" onclick="stringBuilder('6')">6</button>
+
+                </div>
+                <div class="calculator-button-num-number">
+                    <button id="b7" onclick="stringBuilder('7')">7</button>
+                    <button id="b8" onclick="stringBuilder('8')">8</button>
+                    <button id="b9" onclick="stringBuilder('9')">9</button>
+                    
+                </div>
+                <div class="calculator-button-num-number">
+                    <button id="b0" onclick="stringBuilder('0')">0</button>
+                    <button id="b." onclick="funcBack()"><</button>
+                    <button id="bc" onclick="funcClr()">C</button>
+                </div>
+            </div>
+            <div class="calculator-button-eql" onclick="funcFinal()">
+                <div>
+                    <button onclick="genOutput()">=</button>
+                </div>
+            </div>
+        </div>
+        
+
+        
+         
+    </div>
+    <script>
+        let str = "";
+        
+        
+        function stringBuilder(value){
+            str = str + value;
+            document.getElementById('output').value = str;
+        }
+        /*function func1(){
+            String = String+1;
+            document.getElementById('output').value = String;
+            
+        }
+        function func2(){
+            String = String+2;
+            document.getElementById('output').value = String;
+
+        }
+        function func3(){
+            String = String+3;
+            document.getElementById('output').value = String;
+
+        }
+        function func4(){
+            String = String+4;
+            document.getElementById('output').value = String;
+
+        }
+        function func5(){
+            String = String+5;
+            document.getElementById('output').value = String;
+
+        }
+        function func6(){
+            String = String+6;
+            document.getElementById('output').value = String;
+
+        }
+        function func7(){
+            String = String+7;
+            document.getElementById('output').value = String;
+
+        }
+        function func8(){
+            String = String+8;
+            document.getElementById('output').value = String;
+
+        }
+        function func9(){
+            String = String+9;
+            document.getElementById('output').value = String;
+
+        }
+        function funcPlus(){
+            String = String + '+';
+            document.getElementById('output').value = String;
+
+
+        }
+        function funcMinus(){
+            String = String + '-';
+            document.getElementById('output').value = String;
+
+        }
+        function funcMul(){
+            String = String + '*';
+            document.getElementById('output').value = String;
+
+        }
+        function funcDiv(){
+            String = String + '/';
+            document.getElementById('output').value = String;
+
+        }*/
+        function funcClr(){
+            string = "";
+            document.getElementById('output').value = 0;
+             
+
+        }
+        function funcBack(){
+            str = str.slice(0,-1);
+            document.getElementById('output').value = str;
+        }
+        function genOutput(){
+            if(isNaN(parseInt(str[0])) || isNaN(parseInt(str[str.length-1]))){
+                document.getElementById('output').value = 'Syntax Error';
+                String = "";
+            }
+            else{
+                str = eval(str);
+                document.getElementById('output').value = str;
+                str = "";
+
+            }
+            
+        }
+    </script>
+
+</body>
+</html>
