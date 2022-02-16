@@ -37,18 +37,6 @@
         <button onclick="func()">change!</button>
     </div>
     .container
-    <script>
-        function func(){
-            let myColor = document.getElementById('color').value;
-            let bgCol = document.getElementById('body');
-            if(myColor === 'black'){
-               document.getElementById('heading').style.color = 'white';
-            }
-            else{
-                document.getElementById('heading').style.color = 'black';
-            }
-            bgCol.style.backgroundColor = myColor;
-        }
-    </script>
+    <script src="colorflipper.js"></script>
 </body>
 </html>
