@@ -72,7 +72,7 @@ let str = "";
 
         }*/
         function funcClr(){
-            string = "";
+            str = "";
             document.getElementById('output').value = 0;
              
 
